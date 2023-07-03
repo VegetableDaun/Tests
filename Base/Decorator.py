@@ -38,7 +38,7 @@ def introduce(*decargs, **deckwargs):
         return inner
     return outer
 '''''
-'''''
+
 # With parameters and separation def decorator
 def parametrize(new_dec):
     a = 1
@@ -61,8 +61,8 @@ def introduce(f, *decargs, **deckwargs):
 def identity(x):
     a = 1
     return x
-'''''
 
+'''''
 from functools import wraps, partial
 
 def bucket(func=None, *decargs, **deckwargs):
@@ -75,9 +75,9 @@ def bucket(func=None, *decargs, **deckwargs):
         return func(*args, **kwargs)
     return inner
 
-
 @bucket
 def identity(x):
   return x
 
 print(identity(42))
+'''''
