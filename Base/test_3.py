@@ -12,17 +12,14 @@ class Clock:
 
         return self.seconds == sc
 
-    def __gt__(self, other):
-        if not isinstance(other, (int, Clock)):
-            raise TypeError("Не тот тип данных, нужен int или Cloak")
+    def __hash__(self):
+        return hash((self.seconds,))
 
-        sc = other
-        if not isinstance(sc, int):
-            sc = other.seconds
+c1 = Clock(1000)
+c2 = Clock(1000)
 
-        return self.seconds > sc
+print(hash(c1))
+print(hash(c2))
 
-c1 = Clock(2000)
-c2 = Clock(3000)
-
-print(1000 > c1)
+d = {c1:1, c2:2, 1000:3}
+print(d)
