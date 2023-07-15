@@ -1,6 +1,5 @@
 class Cup:
     __slots__ = ('bottom', 'wall')
-
     def __init__(self, bottom, wall):
         self.bottom = bottom
         self.wall = wall
@@ -12,3 +11,7 @@ m.L = 3
 
 print(m.bottom, m.wall)
 print(m.__dict__)
+
+m = Big_Cup()
+print(m.size)
+
