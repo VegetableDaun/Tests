@@ -39,28 +39,37 @@ def introduce(*decargs, **deckwargs):
     return outer
 '''''
 
+
 # With parameters and separation def decorator
 def parametrize(new_dec):
     a = 1
+
     def param_deco(*args, **kwargs):
         def res_deco(f):
             return new_dec(f, *args, **kwargs)
+
         return res_deco
+
     return param_deco
+
 
 @parametrize
 def introduce(f, *decargs, **deckwargs):
     a = 1
+
     @wraps(f)
     def inner(*args, **kwargs):
         print(f.__name__ * decargs[0])
         return f(*args, **kwargs)
+
     return inner
+
 
 @introduce(3)
 def identity(x):
     a = 1
     return x
+
 
 '''''
 from functools import wraps, partial

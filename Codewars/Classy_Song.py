@@ -10,6 +10,7 @@ class Song:
         self._seen.update(tmp)
         return res
 
+
 mount_moose = Song('Mount Moose', 'The Snazzy Moose')
 
 print(mount_moose.how_many(['John', 'Fred', 'BOb', 'carl', 'RyAn']))

@@ -1,6 +1,7 @@
 class IllegalArgumentError(Exception):
     pass
 
+
 class Graph:
     def __init__(self, v):
         # Initialize an empty graph with v vertices(V) and 0 edges(E).
@@ -25,9 +26,11 @@ class Graph:
         # else:
         #     self.adj[v].append(w)
         self.adj[w].append(v)
+
+
 z = Graph(100)
 z.add_edge(2, 54)
-#z.add_edge(54, 2)
+# z.add_edge(54, 2)
 
 
 for i in range(len(z.adj)):

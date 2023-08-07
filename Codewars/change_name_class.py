@@ -7,8 +7,10 @@ class ReNameAbleClass(object):
     def __str__(cls):
         return f"Class name is: {cls.__name__}"
 
+
 class MyClass(ReNameAbleClass):
     pass
+
 
 myObject = MyClass()
 

@@ -13,6 +13,7 @@ class Integer():
         if type(item) != int:
             raise TypeError('НУЖЕН ИНТЕЖЕР!!!')
 
+
 class Point3D:
     x = Integer()
     y = Integer()
@@ -41,6 +42,7 @@ class Point3D:
 
     def __iadd__(self, other):
         return self + other
+
 
 pt_1 = Point3D(1, 1, 1)
 pt_2 = Point3D(2, 4, 8)

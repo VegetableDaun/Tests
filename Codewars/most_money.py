@@ -5,6 +5,7 @@ class Student:
         self.tens = tens
         self.twenties = twenties
 
+
 # def most_money(students):
 #     dict_money = {}
 #     for stu in students:
@@ -17,12 +18,17 @@ class Student:
 class Wallet(Student):
     def __init__(self, sn):
         super().__init__(sn.name, sn.fives, sn.tens, sn.twenties)
+
     def get_money_sum(self):
-        return sum([self.fives*5, self.tens*10, self.twenties*20])
+        return sum([self.fives * 5, self.tens * 10, self.twenties * 20])
+
     def __gt__(self, other):
-        return  self.get_money_sum() > other.get_money_sum()
+        return self.get_money_sum() > other.get_money_sum()
+
     def __eq__(self, other):
         return self.get_money_sum() == other.get_money_sum()
+
+
 def most_money(students):
     students = list(map(Wallet, students))
     if all(x == students[0] for x in students) and len(students) != 1:

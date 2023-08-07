@@ -15,11 +15,12 @@ class Clock:
     def __hash__(self):
         return hash((self.seconds,))
 
+
 c1 = Clock(1000)
 c2 = Clock(1000)
 
 print(hash(c1))
 print(hash(c2))
 
-d = {c1:1, c2:2, 1000:3}
+d = {c1: 1, c2: 2, 1000: 3}
 print(d)

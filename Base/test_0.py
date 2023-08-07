@@ -1,5 +1,6 @@
 import math
 
+
 class Circle:
     __local_1 = 2
     local_2 = 3
@@ -57,9 +58,11 @@ class Circle:
         else:
             return super().__getattribute__(item)
 
+
 class copy_Circle(Circle):
     def __setattr__(self, key, value):
         return super().__setattr__(key, value)
+
 
 cir_1 = Circle(100)
 cir_1.d = 1

@@ -3,7 +3,7 @@ Created on 4 июл. 2022 г.
 
 @author: kiril
 
-''' 
+'''
 '''
 from _ast import Add
 from pickle import TRUE
@@ -936,9 +936,7 @@ for key in my_dict:
     i += 1  
     if i >= len(my_dict[key]):
         break
-'''            
-
-
+'''
 
 '''
 def build_query_string(params):    
@@ -1192,7 +1190,7 @@ for _ in range(5):
 turtle.done()
 # ????????????????????????????????????????????????????????????
 '''
-    
+
 '''    
 import turtle
 from math import *
@@ -1572,15 +1570,15 @@ if len(s) % 2 == 0:
     l = len(s) // 2
 else:
     l = len(s) // 2 + 1
-    
-for i in range(l): 
+
+for i in range(l):
     if s[i + j] == s[-1 - i - k]:
         continue
     else:
         if j >= 1 or k >= 1:
             print('False')
             break
-            
+
         if s[i + 1] == s[-1 - i]:
             j += 1
             continue
@@ -1591,8 +1589,8 @@ for i in range(l):
             else:
                 print('False')
                 break
-            
+
 else:
     print('True')
-    
+
 print(s)

@@ -54,4 +54,5 @@ class VersionManager:
     def release(self):
         return '.'.join(map(str, self.version))
 
+
 a = VersionManager("a")

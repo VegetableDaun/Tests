@@ -22,6 +22,7 @@ class Clock:
 
         return self.seconds > sc
 
+
 c1 = Clock(2000)
 c2 = Clock(3000)
 

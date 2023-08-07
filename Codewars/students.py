@@ -21,6 +21,7 @@ class Student:
     def get_average(self):
         return sum(self.grades) / len(self.grades)
 
+
 someStudent = Student('d', 'd')
 someOtherStudent = Student('d', 'd')
 someStudent.add_grade(98)

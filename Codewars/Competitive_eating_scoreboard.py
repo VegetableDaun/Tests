@@ -9,7 +9,8 @@ def scoreboard(who_ate_what):
     who_ate_what.sort(key=lambda participant: (-participant['score'], participant['name']))
 
     return who_ate_what
+
+
 pt = [{"name": "B", "hamburgers": 4, "hotdogs": 11},
       {"name": "A", "chickenwings": 20, "hamburgers": 4, "hotdogs": 11}]
 print(scoreboard(pt))
-
