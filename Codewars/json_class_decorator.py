@@ -18,7 +18,7 @@ def jsonattr(filepath):
     return outer
 
 
-@jsonattr('dublicate.json')
+@jsonattr('duplicate.json')
 class MyClass:
     def __init__(self, foo, an_int, this_kata_is_awesome):
         self.foo = foo
