@@ -3,7 +3,9 @@ import logging
 import socket
 from asyncio import AbstractEventLoop
 
-from database import connect_to_database
+import asyncpg
+
+from database import connect_to_database, connect_to_database_pool
 from SQL_command import *
 
 
@@ -19,32 +21,46 @@ def server():
 
 
 async def listen_for_connection(server_socket: socket, loop: AbstractEventLoop):
-    while True:
-        connection, address = await loop.sock_accept(server_socket)
-        connection.setblocking(False)
+    # pool_database_connections = await connect_to_database_pool()
 
-        print(f"Получен запрос на подключение от {address}")
-        asyncio.create_task(take_command(connection, loop))
+    async with asyncpg.create_pool(host='127.0.0.1',
+                                   port=5432,
+                                   user='postgres',
+                                   database='employees',
+                                   password='postgres',
+                                   min_size=1,
+                                   max_size=1) as pool:
 
 
-async def take_command(connection_socket: socket, loop: AbstractEventLoop):
-    connection_database = await connect_to_database()
+        while True:
+            connection, address = await loop.sock_accept(server_socket)
+            connection.setblocking(False)
 
+            print(f"Получен запрос на подключение от {address}")
+
+            await asyncio.create_task(take_command(connection, pool, loop))
+
+
+async def res_connection_pool(pool: asyncpg.pool.Pool, request: str):
+    async with pool.acquire() as connection:
+        return await connection.fetch(request)
+
+
+
+
+async def take_command(connection_socket: socket, pool_database_connections: asyncpg.pool.Pool, loop: AbstractEventLoop):
     try:
         while data := await loop.sock_recv(connection_socket, 1024):
-
             if data.decode().split()[0] == 'SELECT_EMP':
-                SELECT_EMPLOYEES = SELECT_EMPLOYEES_DEP.format(data.decode().split()[1])
+                request = SELECT_EMPLOYEES_DEP.format(data.decode().split()[1])
 
-                results = await connection_database.fetch(SELECT_EMPLOYEES)
+                results = await res_connection_pool(pool_database_connections, request)
 
                 for first_name, last_name, dep in results:
-
                     await loop.sock_sendall(connection_socket, f'{first_name}-{last_name}-{dep}\n'.encode())
     except Exception as ex:
         logging.exception(ex)
     finally:
-        connection_database.close()
         connection_socket.close()
 
 
