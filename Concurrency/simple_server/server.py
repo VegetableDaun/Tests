@@ -21,16 +21,13 @@ def server():
 
 
 async def listen_for_connection(server_socket: socket, loop: AbstractEventLoop):
-    # pool_database_connections = await connect_to_database_pool()
-
     async with asyncpg.create_pool(host='127.0.0.1',
                                    port=5432,
                                    user='postgres',
                                    database='employees',
                                    password='postgres',
                                    min_size=1,
-                                   max_size=1) as pool:
-
+                                   max_size=2) as pool:
 
         while True:
             connection, address = await loop.sock_accept(server_socket)
@@ -38,30 +35,37 @@ async def listen_for_connection(server_socket: socket, loop: AbstractEventLoop):
 
             print(f"Получен запрос на подключение от {address}")
 
-            await asyncio.create_task(take_command(connection, pool, loop))
+            asyncio.create_task(take_command(connection, pool, loop))
 
 
 async def res_connection_pool(pool: asyncpg.pool.Pool, request: str):
     async with pool.acquire() as connection:
-        return await connection.fetch(request)
+        async with connection.transaction():
+            return await connection.cursor(request)
 
+async def take_command(connection_socket: socket, pool: asyncpg.Pool, loop: AbstractEventLoop):
+        try:
+            while data := await loop.sock_recv(connection_socket, 1024):
 
+                if data.decode().split()[0] == 'SELECT_EMP':
+                    request = SELECT_EMPLOYEES_DEP.format(data.decode().split()[1])
 
+                    results = await res_connection_pool(pool, request)
 
-async def take_command(connection_socket: socket, pool_database_connections: asyncpg.pool.Pool, loop: AbstractEventLoop):
-    try:
-        while data := await loop.sock_recv(connection_socket, 1024):
-            if data.decode().split()[0] == 'SELECT_EMP':
-                request = SELECT_EMPLOYEES_DEP.format(data.decode().split()[1])
+                    # print(results)
 
-                results = await res_connection_pool(pool_database_connections, request)
+                    # async for first_name, last_name, dep in results:
+                    #     await loop.sock_sendall(connection_socket, f'{first_name} {last_name}___{dep}\n'.encode())
+                    # await loop.sock_sendall(connection_socket, f'ALL IS OKAY, {results} \n'.encode())
 
-                for first_name, last_name, dep in results:
-                    await loop.sock_sendall(connection_socket, f'{first_name}-{last_name}-{dep}\n'.encode())
-    except Exception as ex:
-        logging.exception(ex)
-    finally:
-        connection_socket.close()
+                    # async for i in results.fetch(100):
+                    #     print(i)
+                        # await loop.sock_sendall(connection_socket, f'{first_name} {last_name}___{dep}\n'.encode())
+
+        except Exception as ex:
+            logging.exception(ex)
+        finally:
+            connection_socket.close()
 
 
 async def main():
