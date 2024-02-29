@@ -27,45 +27,42 @@ async def listen_for_connection(server_socket: socket, loop: AbstractEventLoop):
                                    database='employees',
                                    password='postgres',
                                    min_size=1,
-                                   max_size=2) as pool:
-
+                                   max_size=3) as pool:
         while True:
             connection, address = await loop.sock_accept(server_socket)
             connection.setblocking(False)
 
             print(f"Получен запрос на подключение от {address}")
 
-            asyncio.create_task(take_command(connection, pool, loop))
+            asyncio.create_task(request_client(connection, pool, loop))
 
 
-async def res_connection_pool(pool: asyncpg.pool.Pool, request: str):
+async def sending_data_client(request: str, pool: asyncpg.pool.Pool, loop: AbstractEventLoop,
+                              connection_socket: socket):
     async with pool.acquire() as connection:
         async with connection.transaction():
-            return await connection.cursor(request)
+            task_cursor = connection.cursor(request, prefetch=100)
 
-async def take_command(connection_socket: socket, pool: asyncpg.Pool, loop: AbstractEventLoop):
-        try:
-            while data := await loop.sock_recv(connection_socket, 1024):
+            async for first_name, last_name, dep in task_cursor:
+                await loop.sock_sendall(connection_socket, f'{first_name} {last_name}___{dep}\n'.encode())
 
-                if data.decode().split()[0] == 'SELECT_EMP':
-                    request = SELECT_EMPLOYEES_DEP.format(data.decode().split()[1])
 
-                    results = await res_connection_pool(pool, request)
+async def request_client(connection_socket: socket, pool: asyncpg.Pool, loop: AbstractEventLoop):
+    try:
+        while data := await loop.sock_recv(connection_socket, 1024):
 
-                    # print(results)
+            if data.decode().split()[0] == 'SELECT_EMP':
+                request = SELECT_EMPLOYEES_DEP.format(data.decode().split()[1])
 
-                    # async for first_name, last_name, dep in results:
-                    #     await loop.sock_sendall(connection_socket, f'{first_name} {last_name}___{dep}\n'.encode())
-                    # await loop.sock_sendall(connection_socket, f'ALL IS OKAY, {results} \n'.encode())
+                await sending_data_client(request, pool, loop, connection_socket)
 
-                    # async for i in results.fetch(100):
-                    #     print(i)
-                        # await loop.sock_sendall(connection_socket, f'{first_name} {last_name}___{dep}\n'.encode())
+            else:
+                await loop.sock_sendall(connection_socket, f'ALL IS OKAY\n'.encode())
 
-        except Exception as ex:
-            logging.exception(ex)
-        finally:
-            connection_socket.close()
+    except Exception as ex:
+        logging.exception(ex)
+    finally:
+        connection_socket.close()
 
 
 async def main():
