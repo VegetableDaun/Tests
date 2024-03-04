@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import signal
 import socket
 from asyncio import AbstractEventLoop
 
@@ -7,7 +8,6 @@ import asyncpg
 
 from database import connect_to_database, connect_to_database_pool
 from SQL_command import *
-
 
 def server():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
