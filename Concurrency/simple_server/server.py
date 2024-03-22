@@ -23,9 +23,9 @@ def server():
 async def listen_for_connection(server_socket: socket, loop: AbstractEventLoop):
     async with asyncpg.create_pool(host='127.0.0.1',
                                    port=5432,
-                                   user='postgres',
-                                   database='employees',
-                                   password='postgres',
+                                   user='readers',
+                                   database='stories',
+                                   password='',
                                    min_size=1,
                                    max_size=3) as pool:
         while True:
