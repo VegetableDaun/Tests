@@ -23,7 +23,7 @@ else:
         thread = threading.current_thread()
         handler = signal.getsignal(signum)
         # work around the synchronization problem when calling
-        # kill from the main thread.
+        # kill from the app thread.
         if (signum in sigmap and
                 thread.name == 'MainThread' and
                 callable(handler) and
@@ -37,7 +37,7 @@ else:
             signal.signal(signum, handler_set_event)
             try:
                 os.kill(pid, sigmap[signum])
-                # busy wait because we can't block in the main
+                # busy wait because we can't block in the app
                 # thread, else the signal handler can't execute.
                 while not event.is_set():
                     pass

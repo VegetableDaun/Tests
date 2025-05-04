@@ -1,0 +1,416 @@
+{
+  "data": {
+    "home": {
+      "status": "for_sale",
+      "property_history": [
+        {
+          "date": "2025-02-27",
+          "event_name": "Listed",
+          "price": 289900,
+          "price_change": 0,
+          "price_sqft": 179.61586121437423,
+          "source_listing_id": "10467812",
+          "source_name": "GeorgiaMLS",
+          "price_change_percentage": "+28.84%",
+          "days_after_listed": null,
+          "listing": {
+            "list_price": 289900,
+            "last_status_change_date": "2025-02-27T21:38:38Z",
+            "last_update_date": "2025-02-27T21:32:31Z",
+            "status": "for_sale",
+            "list_date": "2025-02-27T21:38:38Z",
+            "listing_id": "2978788940",
+            "__typename": "HomeListing"
+          },
+          "__typename": "HomePropertyHistory"
+        },
+        {
+          "date": "2022-09-20",
+          "event_name": "Sold",
+          "price": 225000,
+          "price_change": 0,
+          "price_sqft": 139.40520446096653,
+          "source_listing_id": "909983",
+          "source_name": "Moultrie",
+          "price_change_percentage": null,
+          "days_after_listed": null,
+          "listing": {
+            "list_price": 249900,
+            "last_status_change_date": "2023-04-13T22:13:01Z",
+            "last_update_date": "2022-09-20T17:51:06Z",
+            "status": "sold",
+            "list_date": "2023-04-13T22:13:01Z",
+            "listing_id": "2945917976",
+            "__typename": "HomeListing"
+          },
+          "__typename": "HomePropertyHistory"
+        },
+        {
+          "date": "2022-05-02",
+          "event_name": "Sold",
+          "price": 166333,
+          "price_change": 0,
+          "price_sqft": 103.05638166047088,
+          "source_listing_id": null,
+          "source_name": "Public Record",
+          "price_change_percentage": null,
+          "days_after_listed": null,
+          "listing": null,
+          "__typename": "HomePropertyHistory"
+        },
+        {
+          "date": "2011-05-20",
+          "event_name": "Sold",
+          "price": 154800,
+          "price_change": 0,
+          "price_sqft": 95.91078066914498,
+          "source_listing_id": null,
+          "source_name": "Public Record",
+          "price_change_percentage": null,
+          "days_after_listed": null,
+          "listing": null,
+          "__typename": "HomePropertyHistory"
+        },
+        {
+          "date": "2011-05-11",
+          "event_name": "Sold",
+          "price": 154800,
+          "price_change": -15100,
+          "price_sqft": 95.91078066914498,
+          "source_listing_id": "900804",
+          "source_name": "Moultrie",
+          "price_change_percentage": "-15.36%",
+          "days_after_listed": "217 days",
+          "listing": {
+            "list_price": 169900,
+            "last_status_change_date": "2023-04-13T22:13:01Z",
+            "last_update_date": "2011-05-11T21:00:05Z",
+            "status": "sold",
+            "list_date": "2023-04-13T22:13:01Z",
+            "listing_id": "525592342",
+            "__typename": "HomeListing"
+          },
+          "__typename": "HomePropertyHistory"
+        },
+        {
+          "date": "2011-03-07",
+          "event_name": "Price Changed",
+          "price": 169900,
+          "price_change": -8000,
+          "price_sqft": 105.26641883519207,
+          "source_listing_id": "900804",
+          "source_name": "Moultrie",
+          "price_change_percentage": null,
+          "days_after_listed": null,
+          "listing": {
+            "list_price": 169900,
+            "last_status_change_date": "2023-04-13T22:13:01Z",
+            "last_update_date": "2011-05-11T21:00:05Z",
+            "status": "sold",
+            "list_date": "2023-04-13T22:13:01Z",
+            "listing_id": "525592342",
+            "__typename": "HomeListing"
+          },
+          "__typename": "HomePropertyHistory"
+        },
+        {
+          "date": "2010-12-15",
+          "event_name": "Price Changed",
+          "price": 177900,
+          "price_change": -5000,
+          "price_sqft": 110.22304832713755,
+          "source_listing_id": "900804",
+          "source_name": "Moultrie",
+          "price_change_percentage": null,
+          "days_after_listed": null,
+          "listing": {
+            "list_price": 169900,
+            "last_status_change_date": "2023-04-13T22:13:01Z",
+            "last_update_date": "2011-05-11T21:00:05Z",
+            "status": "sold",
+            "list_date": "2023-04-13T22:13:01Z",
+            "listing_id": "525592342",
+            "__typename": "HomeListing"
+          },
+          "__typename": "HomePropertyHistory"
+        },
+        {
+          "date": "2010-10-06",
+          "event_name": "Listed",
+          "price": 182900,
+          "price_change": 0,
+          "price_sqft": 113.32094175960347,
+          "source_listing_id": "900804",
+          "source_name": "Moultrie",
+          "price_change_percentage": "+46.32%",
+          "days_after_listed": null,
+          "listing": {
+            "list_price": 169900,
+            "last_status_change_date": "2023-04-13T22:13:01Z",
+            "last_update_date": "2011-05-11T21:00:05Z",
+            "status": "sold",
+            "list_date": "2023-04-13T22:13:01Z",
+            "listing_id": "525592342",
+            "__typename": "HomeListing"
+          },
+          "__typename": "HomePropertyHistory"
+        },
+        {
+          "date": "2000-04-07",
+          "event_name": "Sold",
+          "price": 125000,
+          "price_change": 0,
+          "price_sqft": 77.44733581164807,
+          "source_listing_id": null,
+          "source_name": "Public Record",
+          "price_change_percentage": null,
+          "days_after_listed": null,
+          "listing": null,
+          "__typename": "HomePropertyHistory"
+        }
+      ],
+      "tax_history": [
+        {
+          "assessment": {
+            "building": 70004,
+            "land": 12240,
+            "total": 82244,
+            "__typename": "Assessment"
+          },
+          "market": {
+            "building": 175010,
+            "land": 30600,
+            "total": 205610,
+            "__typename": "Assessment"
+          },
+          "tax": 1858,
+          "year": 2023,
+          "__typename": "TaxHistory"
+        },
+        {
+          "assessment": {
+            "building": 65059,
+            "land": 12240,
+            "total": 77299,
+            "__typename": "Assessment"
+          },
+          "market": {
+            "building": 162649,
+            "land": 30600,
+            "total": 193249,
+            "__typename": "Assessment"
+          },
+          "tax": 1840,
+          "year": 2022,
+          "__typename": "TaxHistory"
+        },
+        {
+          "assessment": {
+            "building": 62061,
+            "land": 12240,
+            "total": 74301,
+            "__typename": "Assessment"
+          },
+          "market": {
+            "building": 155154,
+            "land": 30600,
+            "total": 185754,
+            "__typename": "Assessment"
+          },
+          "tax": 1804,
+          "year": 2021,
+          "__typename": "TaxHistory"
+        },
+        {
+          "assessment": {
+            "building": 55454,
+            "land": 12240,
+            "total": 67694,
+            "__typename": "Assessment"
+          },
+          "market": {
+            "building": 138635,
+            "land": 30600,
+            "total": 169235,
+            "__typename": "Assessment"
+          },
+          "tax": 1673,
+          "year": 2020,
+          "__typename": "TaxHistory"
+        },
+        {
+          "assessment": {
+            "building": 46903,
+            "land": 12240,
+            "total": 59143,
+            "__typename": "Assessment"
+          },
+          "market": {
+            "building": 117258,
+            "land": 30600,
+            "total": 147858,
+            "__typename": "Assessment"
+          },
+          "tax": 1625,
+          "year": 2019,
+          "__typename": "TaxHistory"
+        },
+        {
+          "assessment": {
+            "building": 46903,
+            "land": 12240,
+            "total": 59143,
+            "__typename": "Assessment"
+          },
+          "market": {
+            "building": 117258,
+            "land": 30600,
+            "total": 147858,
+            "__typename": "Assessment"
+          },
+          "tax": 1623,
+          "year": 2018,
+          "__typename": "TaxHistory"
+        },
+        {
+          "assessment": {
+            "building": 45060,
+            "land": 10000,
+            "total": 55060,
+            "__typename": "Assessment"
+          },
+          "market": {
+            "building": 112650,
+            "land": 25000,
+            "total": 137650,
+            "__typename": "Assessment"
+          },
+          "tax": 1498,
+          "year": 2017,
+          "__typename": "TaxHistory"
+        },
+        {
+          "assessment": {
+            "building": 45060,
+            "land": 10000,
+            "total": 55060,
+            "__typename": "Assessment"
+          },
+          "market": {
+            "building": 112651,
+            "land": 25000,
+            "total": 137651,
+            "__typename": "Assessment"
+          },
+          "tax": 1518,
+          "year": 2016,
+          "__typename": "TaxHistory"
+        },
+        {
+          "assessment": {
+            "building": 45060,
+            "land": 10000,
+            "total": 55060,
+            "__typename": "Assessment"
+          },
+          "market": {
+            "building": 112651,
+            "land": 25000,
+            "total": 137651,
+            "__typename": "Assessment"
+          },
+          "tax": 1532,
+          "year": 2015,
+          "__typename": "TaxHistory"
+        },
+        {
+          "assessment": {
+            "building": 45060,
+            "land": 10000,
+            "total": 55060,
+            "__typename": "Assessment"
+          },
+          "market": {
+            "building": 112651,
+            "land": 25000,
+            "total": 137651,
+            "__typename": "Assessment"
+          },
+          "tax": 1503,
+          "year": 2014,
+          "__typename": "TaxHistory"
+        },
+        {
+          "assessment": {
+            "building": 45060,
+            "land": 10000,
+            "total": 55060,
+            "__typename": "Assessment"
+          },
+          "market": {
+            "building": 112651,
+            "land": 25000,
+            "total": 137651,
+            "__typename": "Assessment"
+          },
+          "tax": 1395,
+          "year": 2013,
+          "__typename": "TaxHistory"
+        },
+        {
+          "assessment": {
+            "building": 45060,
+            "land": 10000,
+            "total": 55060,
+            "__typename": "Assessment"
+          },
+          "market": {
+            "building": 112651,
+            "land": 25000,
+            "total": 137651,
+            "__typename": "Assessment"
+          },
+          "tax": 1342,
+          "year": 2012,
+          "__typename": "TaxHistory"
+        },
+        {
+          "assessment": {
+            "building": 44700,
+            "land": 10000,
+            "total": 54700,
+            "__typename": "Assessment"
+          },
+          "market": {
+            "building": 111751,
+            "land": 25000,
+            "total": 136751,
+            "__typename": "Assessment"
+          },
+          "tax": 1297,
+          "year": 2010,
+          "__typename": "TaxHistory"
+        },
+        {
+          "assessment": {
+            "building": 44700,
+            "land": 10000,
+            "total": 54700,
+            "__typename": "Assessment"
+          },
+          "market": {
+            "building": 111751,
+            "land": 25000,
+            "total": 136751,
+            "__typename": "Assessment"
+          },
+          "tax": 1100,
+          "year": 2008,
+          "__typename": "TaxHistory"
+        }
+      ],
+      "building_permits_history": null,
+      "__typename": "Home"
+    }
+  }
+}

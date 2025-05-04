@@ -16,7 +16,7 @@ url = 'https://loremflickr.com/320/240'
 #         file.write(response.content)
 #
 #
-# def main():
+# def app():
 #     t0 = time()
 #
 #     for i in range(10):
@@ -26,7 +26,7 @@ url = 'https://loremflickr.com/320/240'
 #
 #
 # if __name__ == '__main__':
-#     main()
+#     app()
 
 ############################
 import asyncio
